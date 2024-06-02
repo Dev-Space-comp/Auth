@@ -3,15 +3,20 @@
   "module": "./src/index.ts",
   "type": "module",
   "devDependencies": {
+    "@csstools/postcss-sass": "^5.1.1",
     "@types/bun": "latest",
-    "@vitejs/plugin-legacy": "^5.4.1"
+    "@vitejs/plugin-legacy": "^5.4.1",
+    "postcss": "^8.4.38",
+    "sass": "^1.77.4"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
     "hono": "^4.3.10",
-    "nodemailer": "^6.9.13"
+    "nodemailer": "^6.9.13",
+    "sweetalert2": "^11.11.0",
+    "tailwindcss-cli": "^0.1.2"
   },
   "scripts": {
     "dev": "bun run --hot ./src/index.ts"

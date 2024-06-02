@@ -1,3 +1,8 @@
+//variables
+$rocket-section-width: 30%;
+$form-section-width: 70%;
+$name-input-width: 40%;
+
 body {
     margin: 0;
     padding: 0;
@@ -17,33 +22,36 @@ main {
     align-items: center;
 }
 #form{
-    width: 70%;
+    width: $form-section-width;
     height: 100%;
     float: left;
     align-items:center;
 }
 #rocket{
-    width: 30%;
+    width: $rocket-section-width;
     height: 100%;
     background-color:blue;
     float: right;
 }
 
-form * {
+form {
+    * {
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
 }
+}
 #firstname {
-    width: 40%;
+    width: $name-input-width;
 }
 
 #lastname {
-    width: 40%;
+    width: $name-input-width;
     float: right;
 }
 
 #email{
+    //margin-right: calc($rocket-section-width);
     width: 95%;
 }
 
@@ -53,5 +61,15 @@ form * {
 }
 
 #submit{
-    align-self: center;
+    $btn-width : 300px;
+    width: $btn-width;
+    justify-self: center;
+    background-color: skyblue;
+    text: {
+        align:center;
+        decoraton:none;
+        color: white;
+    }
+    display: inline-block;  
+    margin-left: calc(50% - $btn-width/2);  
 }

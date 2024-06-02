@@ -4,26 +4,25 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0",
     "@vitejs/plugin-legacy": "^5.4.1",
     "autoprefixer": "^10.4.19",
+    "cssnano": "^7.0.1",
     "oldie": "^1.3.0",
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^9.5.14",
-    "postcss-sass": "^0.5.0",
-    "postcss-scss": "^4.0.9",
-    "stylelint": "^16.6.1",
-    "tailwindcss": "^3.4.3"
+    "sass": "^1.77.4",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
   },
   "dependencies": {
-    "cssnano": "^7.0.1"
+    "sweetalert2": "^11.11.0"
   }
 }

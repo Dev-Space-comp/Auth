@@ -1,5 +1,6 @@
-const form = document.querySelector("form")  as HTMLFormElement;
+import Swal from 'sweetalert2'
 
+const form = document.querySelector("form")  as HTMLFormElement;
 
 form.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way
@@ -11,6 +12,12 @@ form.addEventListener('submit', function(event) {
         formData[key] = value
     });
 if (formData.pass != formData.pass_check){
-    alert("{")
+    Swal.fire({
+        title: 'The password and conformation dont match',
+        showConfirmButton: true,
+        confirmButtonText: "RETRY",
+        icon: 'warning'
+    }
+    )
 }
 });
