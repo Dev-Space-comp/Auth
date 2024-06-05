@@ -3,6 +3,7 @@
 { pkgs, ... }: {
   # Which nixpkgs channel to use.
   channel = "stable-23.11"; # or "unstable"
+  services.docker.enable = true;
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
@@ -15,6 +16,8 @@
     pkgs.nodejs
     pkgs.yarn
     pkgs.apt
+    pkgs.sudo
+    pkgs.docker
   ];
 
   # Sets environment variables in the workspace
@@ -47,7 +50,7 @@
       # Runs when a workspace is first created
       onCreate = {
         # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
+        npm-install = "bun i";
       };
       # Runs when the workspace is (re)started
       onStart = {

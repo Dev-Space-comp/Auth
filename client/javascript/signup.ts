@@ -19,5 +19,10 @@ if (formData.pass != formData.pass_check){
         icon: 'warning'
     }
     )
+} else {
+    fetch("", {
+        method: "POST",
+        body: formData
+    })
 }
 });

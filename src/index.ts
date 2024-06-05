@@ -1,5 +1,10 @@
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/bun'
+import { createClient } from 'redis';
+
+const client = createClient();
+client.on('error', (err) => console.log('Redis Client Error', err));
+await client.connect();
 
 const app = new Hono()
 const css = new Hono()
@@ -19,7 +24,7 @@ app.route('/css', css)
 const port = process.env.PORT
 
 Bun.serve( { 
-    port: 3000, 
+    port: port, 
     development: true,
     fetch: app.fetch, 
   } )
