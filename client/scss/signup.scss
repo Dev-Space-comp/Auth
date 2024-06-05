@@ -23,9 +23,10 @@ main {
 }
 #form{
     width: $form-section-width;
-    height: 100%;
+    height: 80%;
     float: left;
     align-items:center;
+    margin-top: 5%;
 }
 #rocket{
     width: $rocket-section-width;

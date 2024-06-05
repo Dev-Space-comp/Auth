@@ -20,9 +20,21 @@ if (formData.pass != formData.pass_check){
     }
     )
 } else {
-    fetch("", {
-        method: "POST",
-        body: formData
-    })
-}
+    const endpoint = '3000-idx-auth-1717321602758.cluster-mwrgkbggpvbq6tvtviraw2knqg.cloudworkstations.dev/api/';
+
+    fetch(endpoint)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json(); // Assuming the response is in JSON format
+      })
+      .then(data => {
+        console.log('Response Data:', data);
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+    }
 });
+
