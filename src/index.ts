@@ -28,7 +28,7 @@ css.get('/signup.css', serveStatic({path : '/client/style/signup.css'}))
 
 js.get('/signup.js', serveStatic({path: '/client/js/signup.js'}))
 
-server.get('/', (c) => c.json(JSON.stringify({ test: true })))
+server.get('/', (c) => c.json({ test: true }))
 
 app.route('/js', js)
 app.route('/css', css)

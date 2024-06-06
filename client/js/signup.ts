@@ -20,14 +20,16 @@ if (formData.pass != formData.pass_check){
     }
     )
 } else {
-    const endpoint = '3000-idx-auth-1717321602758.cluster-mwrgkbggpvbq6tvtviraw2knqg.cloudworkstations.dev/api/';
+    const endpoint = 'localhost:3000/api/';
 
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2365620366.
     fetch(endpoint)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json(); // Assuming the response is in JSON format
+        }else{
+        return response.json();
+        } // Assuming the response is in JSON format
       })
       .then(data => {
         console.log('Response Data:', data);

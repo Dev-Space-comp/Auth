@@ -56,6 +56,7 @@
       onStart = {
         # Example: start a background task to watch and re-build backend code
         # watch-backend = "npm run watch-backend";
+        redis = "docker start 2293f1a5e0564acd49a6995d3bb231d6648b5b90348b0fefc64ce2ba499927cf";
       };
     };
   };
