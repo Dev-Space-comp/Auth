@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
 import { serveStatic } from 'hono/bun'
+/*
 import { createClient } from 'redis';
 
 const client = createClient({
@@ -15,6 +16,7 @@ const client = createClient({
 client.on('error', (err) => console.log('Redis Client Error', err));
 await client.connect();
 
+*/
 const app = new Hono()
 const css = new Hono()
 const js = new Hono()
