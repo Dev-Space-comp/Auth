@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
-import { serveStatic } from 'hono/bun'
+import nodemailer from 'nodemailer'
 /*
 import { createClient } from 'redis';
 
@@ -17,31 +17,63 @@ client.on('error', (err) => console.log('Redis Client Error', err));
 await client.connect();
 
 */
+
+const mailTransporter = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "b45fa93dbaee26",
+    pass: "fea914cb38ae7a"
+  }
+});
+
+mailTransporter.verify((error) => {
+  if (error) {
+    console.log('Connection error:', error);
+  } else {
+    console.log('Server is ready to take our messages');
+  }
+});
+
+function mail(MailAddress:string){
+  let mailDetails = {
+    to: MailAddress,
+    subject: 'Test mail',
+    text: 'Node.js testing mail for GeeksforGeeks'
+};
+  return mailDetails
+}
+
 const app = new Hono()
-const css = new Hono()
-const js = new Hono()
 const server = new Hono()
 app.use(logger())
 
-app.get('/', (c) => c.text('Hello Bun!'))
-app.get('/a', serveStatic({path :'/client/pages/signup.htm'}))
 
-css.get('/signup.css', serveStatic({path : '/client/style/signup.css'}))
+server.post('/', async (c, next) => {
+  await next()
+  console.log((await c.req.json()).email)
+  mailTransporter
+    .sendMail(mail((await c.req.json()).email as string),
+        function (err, data) {
+            if (err) {
+              return c.json({ DataReceived: false })
+            } else {
+              return c.json({ DataReceived: true })
+            }
+        });
+  
 
-js.get('/signup.js', serveStatic({path: '/client/js/signup.js'}))
+}
+)
 
-server.get('/', (c) => c.json({ test: true }))
-
-app.route('/js', js)
-app.route('/css', css)
 app.route('/api/', server)
 
 const port = process.env.PORT
 
-Bun.serve( { 
-    port: port, 
-    development: true,
-    fetch: app.fetch, 
-  } )
-  
+Bun.serve({
+  port: port,
+  development: true,
+  fetch: app.fetch,
+})
+
 console.log(`runnin da server on ${port}`)  
