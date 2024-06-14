@@ -70,22 +70,26 @@ form {
     margin-left: calc(50% - $btn-width/2);  
 }
 #changepage{
-    align-self: baseline;
-    margin-left: 10px;
+    margin: 100px;
 }
 
 #forgotpass{
-justify-self: left;
+float: left;
 }
 
 #signin{
-justify-self: right;
-margin-left: calc(100% - $rocket-section-width);
+float: right;
+// margin-right: 20px;
 }
 
 a {
     text: {
         decoration: none;
     }
-    color: black;
+    font: {
+        size: 20px;
+        weight: bold;
+    }
+    color: peru;
+
 }
