@@ -21,7 +21,7 @@ main {
     justify-content: center;
     align-items: center;
 }
-#form{
+.form{
     width: $form-section-width;
     height: 80%;
     float: left;
@@ -50,25 +50,20 @@ form {
     width: $name-input-width;
     float: right;
 }
-
-#email{
-    //margin-right: calc($rocket-section-width);
-    width: 95%;
-}
-
-#pass {
+.basicBox{
     width: 95%;
 
 }
 
-#submit{
+
+.submit{
     $btn-width : 300px;
     width: $btn-width;
     justify-self: center;
     background-color: skyblue;
     text: {
         align:center;
-        decoraton:none;
+        decoration:none;
         color: white;
     }
     display: inline-block;  
