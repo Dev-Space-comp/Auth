@@ -10,11 +10,11 @@ form.addEventListener('submit', async function (event) {
   const form_Data = new FormData(this);
   const formData: { [key: string]: FormDataEntryValue } = {};
   form_Data.forEach((value, key) => {
-    // console.log(`${key}: ${value}`);
     formData[key] = value
   });
+  console.log(formData)
   if (formData.pass == formData.pass_check) {
-    if (passwordStrength(formData.pass as string).id < 2) {
+    if (passwordStrength(formData.pass as string).id <= 2) {
       const endpoint = 'http://localhost:5000/api/';
 
       // Suggested code may be subject to a license. Learn more: ~LicenseLog:2365620366.
@@ -32,7 +32,6 @@ form.addEventListener('submit', async function (event) {
           if (jsonResponse.DataReceived) {
             if (jsonResponse.MailSent) {
               console.log(jsonResponse.MailInfo);
-              form.reset()
               form.remove()
               const form2 = document.getElementById("otp-form") as HTMLFormElement
               form2.innerHTML = `
@@ -70,7 +69,7 @@ form.addEventListener('submit', async function (event) {
         });
     } else {
       Swal.fire({
-        title: 'The email is not valid',
+        title: 'password strength is not enough',
         showConfirmButton: true,
         confirmButtonText: "RETRY",
         icon: 'warning'
@@ -78,7 +77,7 @@ form.addEventListener('submit', async function (event) {
     }
   } else {
     Swal.fire({
-      title: 'The email is not valid',
+      title: 'pass != pass_check',
       showConfirmButton: true,
       confirmButtonText: "RETRY",
       icon: 'warning'

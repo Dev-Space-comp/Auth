@@ -69,3 +69,23 @@ form {
     display: inline-block;  
     margin-left: calc(50% - $btn-width/2);  
 }
+#changepage{
+    align-self: baseline;
+    margin-left: 10px;
+}
+
+#forgotpass{
+justify-self: left;
+}
+
+#signin{
+justify-self: right;
+margin-left: calc(100% - $rocket-section-width);
+}
+
+a {
+    text: {
+        decoration: none;
+    }
+    color: black;
+}
