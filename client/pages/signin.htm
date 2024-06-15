@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/scss/signin.scss">
+    <script type="module" src="/ts/signin.ts" defer></script>
 </head>
 <body>
     <main>
-        
+        <form id="form">
+            <input id="email"name="email" type="email" placeholder="email" class="basicBox" required>
+            <input id="password" name="pass" type="password" placeholder="password" class="basicBox" required>
+            <input type="submit" id="submit">
+        </form>
     </main>
 </body>
 </html>

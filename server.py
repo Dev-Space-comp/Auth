@@ -62,8 +62,20 @@ class SendEmail(Resource):
         except ApiException as e:
             return{"DataReceived" : True, "MailSent" : False, "MailError" : str(e)}, 500
 
+class UserVerificaton(Resource):
+    def post(self):
+        try:
+            json_data = request.get_json(force=True)
+            print(json_data)
+            reply = requests.post('http://localhost:3000/login', json=json_data)
+            return reply.json(), 200
+
+        except ApiException as e:
+            return e    
 # Define the endpoint and the resource
 api.add_resource(SendEmail, '/api/')
+api.add_resource(UserVerificaton, '/api/login')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

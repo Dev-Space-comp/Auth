@@ -16,3 +16,27 @@ main {
     justify-content: center;
     align-items: center;
 }
+form {
+    * {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+}
+.basicBox{
+    width: 95%;
+}
+
+#submit{
+        $btn-width : 300px;
+    width: $btn-width;
+    justify-self: center;
+    background-color: skyblue;
+    text: {
+        align:center;
+        decoration:none;
+        color: white;
+    }
+    display: inline-block;  
+    margin-left: calc(50% - $btn-width/2 - 20px);  
+}
